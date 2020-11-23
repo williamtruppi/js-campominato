@@ -21,5 +21,18 @@ for (var j = 0; j < cpuNumbersArray.length / 2; j++){
   }
 }
 
-
 console.log(cpuNumbersArray);
+
+// In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
+
+var userNumbersArray = [];
+var x = 0;
+var trovato = false;
+
+do{
+  userNumber = Number(prompt("Inserisci un numero tra 1 (compreso) e 100 (compreso)"));
+  userNumbersArray.push(userNumber);
+  x++;
+} while (userNumber < 1 || userNumber > 100 || isNaN(userNumber) || userNumbersArray.length != 10)
+
+console.log(userNumbersArray);
