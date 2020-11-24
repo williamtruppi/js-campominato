@@ -23,16 +23,17 @@ var counter = 1;
 
 do{
 
-  var userNumber = Number(prompt("Inserisci un numero da 1 (compreso) a 100 (compreso"));
+  var userNumber = Number(prompt("Inserisci un numero da 1 (compreso) a 100 (compreso)"));
 
-  
-  if (userNumber < 1 || userNumber > 100 || isNaN(userNumber)){
-    alert("Hai inserito un valore inferiore a 1, maggiore di 100 OPPURE una parola - Riprova");
-  } else if (!(userNumbersArray.includes(userNumber))) { 
-    userNumbersArray.push(userNumber); 
-  } else {
-    alert("Hai già inserito questo numero - Per favore, riprova");
+  while (userNumber < 1 || userNumber > 100 || isNaN(userNumber)) {
+    userNumber = Number(prompt("Hai inserito un valore inferiore a 1, maggiore di 100 OPPURE una parola - Riprova"));
   }
+
+  while ((userNumbersArray.includes(userNumber))) { 
+    userNumber = Number(prompt("Hai già inserito questo numero - Per favore, riprova"));
+  }
+  
+  userNumbersArray.push(userNumber); 
   
   // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
 
@@ -54,10 +55,6 @@ console.log(userNumbersArray);
 if (userNumbersArray.length == 5 && trovato == false){
   alert ("Sei uscito dal campo minato senza \"calpestare\" la mina. Congratulazioni!!!");
 }
-
-
-
-
 
 
 //FUNZIONI
