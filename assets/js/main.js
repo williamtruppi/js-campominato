@@ -25,6 +25,7 @@ do{
 
   var userNumber = Number(prompt("Inserisci un numero da 1 (compreso) a 100 (compreso"));
 
+  
   if (userNumber < 1 || userNumber > 100 || isNaN(userNumber)){
     alert("Hai inserito un valore inferiore a 1, maggiore di 100 OPPURE una parola - Riprova");
   } else if (!(userNumbersArray.includes(userNumber))) { 
@@ -32,25 +33,31 @@ do{
   } else {
     alert("Hai già inserito questo numero - Per favore, riprova");
   }
-
+  
   // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
 
-  for (var i = 0; i < userNumbersArray.length; i++){
-    if (userNumber === cpuNumbersArray[i]){
-      alert("Hai vinto dopo " + counter + " tentativi");
+  for (var i = 0; i < cpuNumbersArray.length; i++){
+    if (cpuNumbersArray.includes(userNumber)){
+      alert("BOOOOOOOM BABY!! Hai beccato una mina dopo " + counter + " tentativi");
       trovato = true;
       break;
     } else {
-      alert ("Non hai indovinato, ritenta");
+      alert ("MINA EVITATA, vai avanti!!");
       counter++;
       break;
     }
   }
-
 } while (userNumbersArray.length < 5 && trovato == false)
 
-
 console.log(userNumbersArray);
+
+if (userNumbersArray.length == 5 && trovato == false){
+  alert ("Sei uscito dal campo minato senza \"calpestare\" la mina. Congratulazioni!!!");
+}
+
+
+
+
 
 
 //FUNZIONI
