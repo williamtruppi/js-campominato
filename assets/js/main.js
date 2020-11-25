@@ -37,17 +37,17 @@ do{
   
   // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
 
-  for (var i = 0; i < cpuNumbersArray.length; i++){
-    if (cpuNumbersArray.includes(userNumber)){
-      alert("BOOOOOOOM BABY!! Hai beccato una mina dopo " + counter + " tentativi");
-      trovato = true;
-      break;
-    } else {
-      alert ("MINA EVITATA, vai avanti!!");
-      counter++;
-      break;
-    }
+  var checkArray = checkUserArray(cpuNumbersArray, userNumber); //invoco la funzione
+  console.log(checkArray);
+  
+  //effettuo il controllo sulla variabile booleana
+
+  if (trovato) {
+    alert("BOOOOOOOM BABY!! Hai beccato una mina dopo " + counter + " tentativi");
+  } else {
+    alert ("MINA EVITATA, vai avanti!!");
   }
+
 } while (userNumbersArray.length < 5 && trovato == false)
 
 console.log(userNumbersArray);
@@ -60,4 +60,14 @@ if (userNumbersArray.length == 5 && trovato == false){
 //FUNZIONI
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min); //incluso sia il minimo che il massimo
+}
+
+function checkUserArray (array, number) {
+  for (var i = 0; i < array.length; i++){
+    if (array.includes(number)){
+      return trovato = true;
+    } else {
+      return counter++;
+    }
+  }
 }
